@@ -41,8 +41,11 @@ const HomeHeroLandingScrollAnimation: React.FC = () => {
 
     for (let i = animationOrder.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [animationOrder[i], animationOrder[j]] = [animationOrder[j], animationOrder[i]];
+      const tmp = animationOrder[i]!;
+      animationOrder[i] = animationOrder[j]!;
+      animationOrder[j] = tmp;
     }
+
 
     textAnimationOrderRef.current = animationOrder;
 
